@@ -1,0 +1,106 @@
+{% extends "loginP.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Login 
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+
+	function mostrarContraseña(){
+		var tipo = document.getElementById('id_password');
+		var icon = document.getElementById('boton');
+
+		if (tipo.type == 'password') {
+			tipo.type = 'text';
+			icon = 'icon_lock-open ';			
+		}else {
+			tipo.type = 'password';
+			icon = 'icon_lock';
+		}
+	}
+
+
+</script>
+{% endblock %}
+
+{% block content %}
+
+<figure class="text-center">
+	<div class="container-sm">
+		<div class="row">
+			<div class="col-sm-4">
+				<img src='{% static "img/lineamorada.png" %}'/>
+				</br>
+			</div>
+			<div class="col-sm-4">
+				<em><h3>Bienvenido</h3></em>
+			</div>
+			<div class="col-sm-4">
+				<img src='{% static "img/lineaazul.png" %}' />
+				<br/>
+			</div>
+		</div>
+	</div>
+</figure>
+
+	<form action="" method="post">
+	{% csrf_token %}
+
+	<figure class="text-center">
+		<div class="container">
+			<div class="row">
+  				<label for="colFormLabelLg" class="col-sm-5 col-form-label col-form-label-lg"><em><h3>Nombre de usuario:</h3></em>
+  				</label>
+  			<div class="col-sm-6" >
+    		{{ form.username|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder: '}}
+  			</div>
+			</div>
+		</div>
+
+	</figure>
+
+	<figure class="text-center">
+
+		<div class="container">
+			<div class="row">
+  				<label for="colFormLabelLg" class="col-sm-5 col-form-label col-form-label-lg"><em><h3>Contraseña:</h3></em>
+  				</label>
+  			<div class="col-sm-6">
+  				<div class="input-group">
+  					{{ form.password|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder: '}}
+      				<div class="input-group-text" >      					
+      					<i class="icon_lock" onclick="mostrarContraseña()" id="boton"></i>
+      				</div>		
+    			</div>  				    		
+  			</div>
+			</div>
+		</div>
+
+	</figure>
+
+	<figure class="text-center">
+		<button type="submit" class="btn btn-primary btn-lg"><i class="bx bx-log-in "></i> Iniciar Sesión
+        </button>
+	</figure>
+	</form>
+
+	<figure class="text-center">
+  		<blockquote class="blockquote">
+    	<p>¿Olvidaste tú contraseña?, Hás click <cite title="Source Title" class="breadcrumb-item"><a href="{% url 'password_reset' %}">Aqui</a></cite></p>
+  		</blockquote>
+  		<blockquote class="blockquote">
+    	<p>¿No te hás registrado?, Hás click <cite title="Source Title" class="breadcrumb-item"><a href="{% url 'registrar_usuario' %}">Aqui</a></cite></p>
+  		</blockquote>
+	</figure>
+
+	<div class="text-left">
+        <a class="btn btn-primary" href="{% url 'Presentacion' %}"><i class="arrow_back"></i></a>
+      </div>
+
+
+
+{% endblock %}
+

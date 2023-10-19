@@ -1,0 +1,52 @@
+{% extends "indexP.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Editar Expresión Corporal
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+          <div class="col-lg-12">
+            <ol class="breadcrumb">
+              <li><a href="{% url 'IndexView' %}"><i class="icon_house"></i> Home</a></li>
+              <li><a href="{% url 'Inventarios' %}"><i class="icon_archive"></i> Inventarios</a></li>
+              <li><a href="{% url 'InventarioTA' %}"><i class="icon_chat"></i> Expresión Corporal</a></li>
+              <li><a href="#"><i class="icon_pencil-edit"></i> Editar Expresión Corporal</a></li>
+            </ol>
+          </div>
+        </div>  
+
+      <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="container">
+      <div class="row">
+          <p><em><h1><i class="icon_pencil-edit"></i> Editar Expresión Corporal</h1></em></p>
+          <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"><p><em><h3>Material</h3></em></p></label>
+          {{ form.materialess|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+          </div>
+          <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"><p><em><h3>Disponible</h3></em></p></label>
+          {{ form.disponible|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+          </div>
+          <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"><p><em><h3>Estado</h3></em></p></label>
+          {{ form.Estado|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+          <br>
+          </div>
+          <figure class="text-left">
+          <button type="submit" class="btn btn-primary"><i class="icon_cloud"></i> Subir</button>
+          &nbsp;&nbsp;
+          <a class="btn btn-primary" href="{% url 'InventarioTA' %}">Cancelar</a>
+        </figure> 
+      </div>
+    </div>
+  
+      </form>
+
+{% endblock %}
+

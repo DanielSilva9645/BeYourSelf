@@ -1,0 +1,164 @@
+{% extends "indexP.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+Foro Pintura
+{% endblock %}
+
+{% block js %}
+<script>
+  function eliminar(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/AreaPersonal/PostPintura/eliminar_PostPint/"+codigo+"/"
+      }
+    })
+  }
+</script>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'IndexView' %}"><i class="icon_house"></i> Home</a></li>
+      <li><a href="{% url 'AreaPersonal' %}"><i class="social_twitter"></i> Área Social</a></li>
+      <li><a href="{% url 'PostPinturass' %}"><i class="icon_pencil"></i> Foro Pintura</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+        <p><em><h2><i class="icon_pencil"></i> Foro Pintura</h2></em></p>
+        </div>
+      <div class="col-sm-3">
+        <br>
+        <a href="{% url 'NewPostPint' %}" class="btn btn-primary btn-sm"><i class="icon_cloud"></i> Subir nuevo comentario</a>
+      </div>
+  </div>
+</div>
+<br>
+<form method="get">
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <p><em><h4>Buscar publicaciones Por:</h4></em></p>
+    </div>
+    {% if perms.Academico.can_add_inv_danzas %}
+    <div class="col-sm-1">
+      <p><em><h4>Usuarios:</h4></em></p>
+    </div>
+    <div class="col-sm-1">
+      {{myfilter.form.user}}
+    </div>
+    &nbsp;&nbsp;&nbsp;
+    <div class="col-sm-1">
+      <p><em><h4>Fecha:</h4></em></p>
+    </div>
+    <div class="col-sm-2">
+      <input class="form-control" type="date" name="timestamp" id="id_timestamp">
+    </div>
+    <div class="col-sm-3">
+      <input class="form-control" id="exampleDataList" placeholder="Contenido" name="content" autocomplete="off">
+    </div>
+    {% else %}
+    <div class="col-sm-1">
+      <p><em><h4>Fecha:</h4></em></p>
+    </div>
+    <div class="col-sm-2">
+      <input class="form-control" type="date" name="timestamp" id="id_timestamp">
+    </div>
+    <div class="col-sm-5">
+      <input class="form-control" id="exampleDataList" placeholder="Contenido" name="content" autocomplete="off">
+    </div>
+    {% endif %}
+    <div class="col-sm-1">
+      <button class="btn btn-primary" type="submit"><em>Buscar</em></button>
+    </div>
+  </div>
+</div>
+</form>
+<br>
+
+{% for post in postspinturass %}
+
+<div class="col-lg-7">
+  <div class="card" align="center">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+        {% if post.user.username != request.user.username %}
+          
+        {% else %}
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary right mr-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="{% url 'modificar_PostPint' post.codigo %}" >Editar</a>
+            <a class="dropdown-item" href="#" onclick="eliminar({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+            
+        {% endif %}
+        
+      </div>
+    </div> 
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <div class="post">{{ post.content }}</div>
+          <hr>
+          <h5 align="left"><time data-time="#"><i class="icon_clock_alt"></i> {{ post.timestamp }}</time></h5>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+        
+{% endfor %}
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{% if form.errors %}
+  <script>
+      Swal.fire({
+        "title": "Error",
+        "text": "",
+        "icon": "error"
+      })   
+  </script>
+{% endif %}
+
+{% if messages %}
+  {% for m in messages %}
+    <script>
+      Swal.fire({
+        "title": "Felicidades",
+        "text": "{{m}}",
+        "icon": "success"
+      })
+    </script>
+  {% endfor %}
+{% endif %}
+
+{% endblock %}
+

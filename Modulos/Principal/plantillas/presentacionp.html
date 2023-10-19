@@ -1,0 +1,260 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bienvenidos a BeYourSelf</title>
+
+  <!-- Boostrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Favicons -->
+  <link href="{% static 'img/pajaro.png' %}" rel="icon">
+  <link href="{% static 'img/pajaro.png' %}" rel="apple-touch-icon">
+
+   <!-- estilo -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+<body background='{% static "img/fondito2.png" %}'>
+	<div class="container py-2"> <!-- Siempre 12 bloques-->
+		<div class="row">
+				<meta content="" name="description">
+        <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/1.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/stole.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Arsha - v2.3.1
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</div>
+</div>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+<header id="header" class="fixed-top ">
+  <div class="container d-flex align-items-center">
+
+      <h1 class="logo mr-auto"><a href="{% url 'Presentacion' %}">BeYourSelf</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <a href="{% url 'Presentacion' %}" class="get-started-btn scrollto">Home</a>
+          <a href="{% url 'registrar_usuario' %}" class="get-started-btn scrollto">Registrarse</a>
+        </ul>
+      </nav><!-- .nav-menu -->
+      {% if request.user.is_authenticated %}
+        <a href="{% url 'IndexView' %}" class="get-started-btn scrollto">Entrar Sesión</a>
+      {% else %}
+        <a href="{% url 'login' %}" class="get-started-btn scrollto">Iniciar Sesión</a>
+      {% endif %}
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+ 
+
+  <main id="main">
+
+    <!-- ======= Cliens Section ======= -->
+    
+
+      </div>
+    </section><!-- End Cliens Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Sobre nosotros</h2>
+        </div>
+
+
+        <table>
+          <tr>
+<td  rowspan="3">
+ <div class="col-lg-11 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+<div class="card-deck">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">¿Que Somos? </h3>
+      <p class="card-text">Beyourself es un programa web que administra las actividades lúdicas dentro de la institución que ademas cuenta con un sistema de inventarios que le permite a los usuarios solicitar materiales para su uso con fines educativos. Esta herramienta esta pensada para brindar apoyo a los docentes de las areas artisticas facilitandoles organizar su programación para  clases </p><p>
+
+ es mucho mas que un inventario cademic Reg es um programa de software que tenga como fin  facilitar el acceso a la información y mejorar el ordenamiento de los libros de calificación de los estudiantes activos e inactivos presentes en el Colegio San Francisco de Asís. Contamos con valores como: 
+       </p>
+       <ul>
+              <li><i class="ri-check-double-line"></i> Orientación al cliente</li>
+              <li><i class="ri-check-double-line"></i> Responsabilidad</li>
+              <li><i class="ri-check-double-line"></i> Trabajo en equipo</li>
+            </ul>
+      <a href="" class="btn btn-primary">Ver Inventario</a>
+    </div>
+  </div>
+</div>
+</td>
+
+    <td>
+<div class="col-lg-6 pt-4 pt-lg-0"> <img class="circular--square" src='{% static "img/tod.png" %}'></div>
+</div> </td></tr>
+
+<tr> <td><div class="col-lg-6 pt-4 pt-lg-0"> <img class="circular--square" src='{% static "img/tod.png" %}'></div></td></tr>
+
+<tr> <td><div class="col-lg-6 pt-4 pt-lg-0"> <img class="circular--square" src='{% static "img/tod.png" %}'></div></td></tr>
+
+          </table>
+<!--
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title"><i class=""></i> </h3>
+      <p class="card-text"> Además, se pretende promover la seguridad a instituciones de larga trayectoria en almacenamiento de archivo, generando un espacio más óptimo, cómodo y practico, haciendo más satisfactorio su trabajo.</p>
+      <a href="" class="btn btn-primary">Ver Inventario</a>
+    </div>
+  </div>
+</div>
+</br>
+         <a href="https://tatacadavidcorrea.wixsite.com/one-two-three" class="btn-learn-more">Más información</a>
+    </section> End About Us Section --> 
+
+    <!-- ======= Why Us Section ======= 
+    <section id="why-us" class="why-us section-bg">
+   
+
+        <div class="row">
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
+            <div class="content">
+              <h3>Academic reg <strong>facilita tu trabajo</strong></h3>
+              <p>
+                Un programa de desarrollo de software para promover el ordenamiento y almacenamiento digital de datos, llegó al lugar correcto. 
+
+              </p>
+            </div>
+
+            <div class="accordion-list">
+              <ul>
+                <li>
+                  <a data-toggle="collapse" class="collapse" href="#accordion-list-1"><span>01</span> Diseño grafico <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-1" class="collapse show" data-parent=".accordion-list">
+                    <p>
+                      En compañía de Nathaly Cadavid Correa y en base a las preferencias de nuestra tutora Karol ***, ofrecemos un  programa con un diseño práctico y dinámico, adaptado para su uso fácil, sin dejar de lado la exclusividad y elengancia. 
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-toggle="collapse" href="#accordion-list-2" class="collapsed"><span>02</span> Gestión proyectos<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-2" class="collapse" data-parent=".accordion-list">
+                    <p>
+                      La comunicación con nuestros clientes es muy importante. Por eso, antes de elaborar tu proyecto, nuestra analista Mariana Arias Díaz, tiene en cuenta tus peticiones o observaciones. Y todo en base a la metodología SCRUM.
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-toggle="collapse" href="#accordion-list-3" class="collapsed"><span>03</span> Codificación<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-3" class="collapse" data-parent=".accordion-list">
+                    <p>
+                      Tenemos un compromiso con la calidad, y por medio de lenguajes de programación como Python, María Catalina Paz Muñoz vuelve todas tus expectativas en realidad.
+                    </p>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+
+     
+
+      </div>
+    </section>
+
+     ======= Services Section ======= 
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Servicios</h2>
+          <p>La alquimia se encontraba íntimamente vinculada con la astrología, ya que el hombre antiguo buscaba una correlación entre los asuntos de la tierra y los del cielo, y aspiraba a aprender a manipularlos para su propio beneficio.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="">Juan Jose Velasco</a></h4>
+              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Daniel Silva</a></h4>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <img src='{% static "img/Lucas.png" %}'>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4><a href="">Miguel Usma</a></h4>
+              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            </div>
+          </div>
+
+          
+
+        </div>
+
+      </div>
+
+  </section>
+-->
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{% if messages %}
+    {% for message in messages %}
+    <script>
+          Swal.fire({
+            "title": "Felicitaciones",
+            "text": "{{ message }}",
+            "icon": "success"
+          })
+        </script>
+    {% endfor %}
+  {% endif %}
+</body>
+</html>

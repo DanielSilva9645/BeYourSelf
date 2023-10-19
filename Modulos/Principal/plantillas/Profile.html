@@ -1,0 +1,116 @@
+{% extends "indexP.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+Perfil - @{{ user.username }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'IndexView' %}"><i class="fa fa-home"></i>Home</a></li>
+      {% if request.user.is_authenticated %}
+        {% if user.username != request.user.username %}
+          <li><i class=""></i><a href="{% url 'profile' user.username %}"><i class="icon_profile"></i> {{ user.username }}</a></li>
+        {% else %}
+          <li><a href="{% url 'profile' request.user.username %}"><i class="icon_profile"></i>Mi Perfil</a></li>
+        {% endif %}
+      {% endif %}
+    </ol>
+  </div>
+</div>
+
+<div class="card-deck">
+
+  <div class="card">
+    <img src="{{ user.profile.image.url }}" id="logo" alt="Card image cap">
+    <div class="card-body">
+      <div class="container-article">
+        <h2><a href="{% url 'profile' user.username %}">@{{ user.username }}</a></h2>
+        &nbsp;&nbsp;      
+      </div>  
+      {% if request.user.is_authenticated %}
+          {% if user.username != request.user.username %}
+            {% if user not in request.user.profile.following %}
+            <a class="btn btn-primary" href="{% url 'follow' user %}">Seguir</a>
+            {% else %}
+            <div class="dropdown">
+              <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Siguiendo   <i class="arrow_carrot-down"></i></button>
+              <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+                <a class="dropdown-item" href="{% url 'unfollow' user %}">Dejar de Seguir</a>
+              </div>
+            </div>
+            {% endif %}
+          {% endif %}
+        {% endif %}      
+        <em><h3><a href="{% url 'ViewFollow' user.username %}">Seguidores</a></h3></em>
+        <em><h3><p>{{ user.profile.followers.count }}</p></h3></em> 
+        <br>
+        <em><h3><a href="{% url 'ViewFollow' user.username %}">Seguidos</a></h3></em>
+        <em><h3><p>{{ user.profile.following.count }}</p></h3></em>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src='{% static "img/descarga (2).jpg" %}' id="logo" alt="Card image cap">
+    <div class="card-body">
+      <h2 class="card-title">Detalles del Usuario</h2>
+      <br>
+        <h3>Usuario: <a href="{% url 'profile' user.username %}">@{{ user.username }}</a></h3>
+        <h3>Nombres: {{ user.first_name }}</h3>
+        <h3>Apellidos: {{ user.last_name }}</h3>
+        <h3>Email: {{ user.email }}</h3>
+        <h3><a href="{% url 'PostsPedidos' user.username %}">Publicaciones y Pedidos</a></h3>
+    </div>
+  </div>
+
+  {% if request.user.is_authenticated %}
+    {% if user.username != request.user.username %}
+
+    {% else %}
+      <div class="card">
+        <img src='{% static "img/editperfil.png" %}' id="logo" alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title">Editar Perfil</h2>
+          <br>
+          <h3><a href="{% url 'EditImagenPersonales' request.user.profile.codigo %}">Imagen de Perfil</a></h3>
+          <h3><a href="{% url 'EditDatosPersonales' request.user.username %}">Datos Personales</a></h3> 
+          <h3><a href="{% url 'EditUsuario' request.user.username %}">Usuario</a></h3>          
+          <h3><a href="{% url 'password_change' %}">Contraseña</a></h3>          
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+
+</div>
+</br><br>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{% if form.errors %}
+  <script>
+      Swal.fire({
+        "title": "Error",
+        "text": "",
+        "icon": "error"
+      })   
+  </script>
+{% endif %}
+
+{% if messages %}
+  {% for m in messages %}
+    <script>
+      Swal.fire({
+        "title": "Felicidades",
+        "text": "{{m}}",
+        "icon": "success"
+      })
+    </script>
+  {% endfor %}
+{% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends 'indexP.html' %}
+
+{% block title %}
+Eliminar Evento
+{% endblock %}
+
+
+{% block content %}
+    <h1>Eliminar</h1>
+    <form action="" method="post">{% csrf_token %}
+        <label for="exampleInputEmail1" class="form-label"><p><em><h3>¿Estás seguro de que deseas eliminar este evento?</h3></em></p></label>
+        &nbsp;&nbsp;
+        <button class="btn btn-danger ml-2" type="submit">Si</button>
+        &nbsp;&nbsp;
+        <a class="btn btn-primary btn-lg" href="{% url 'calendar' %}">No</a>
+    </form>
+{% endblock content %}

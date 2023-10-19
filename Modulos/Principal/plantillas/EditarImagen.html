@@ -1,0 +1,44 @@
+{% extends "indexP.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Cambio de Imagen de Perfil
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'IndexView' %}"><i class="icon_house"></i> Home</a></li>
+      <li><a href="{% url 'profile' request.user.username %}"><i class="icon_profile"></i> Mi Perfil</a></li>
+      <li><a href="#"><i class="icon_pencil-edit"></i> Cambio de Imagen de Perfil</a></li>
+      </ol>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10">
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+          <p><em><h2><i class="icon_pencil-edit"></i> Cambio de Imagen de Perfil</h2></em></p>
+          <br>
+          <div class="container-article">
+          <span><img src="{{ request.user.profile.image.url }}"></span>          
+          </div>
+          <br>
+          {{ form.image|add_class:'form-control'}}
+          <br><br>
+          <button type="submit" class="btn btn-primary btn-lg"><i class="bx bx-log-in "></i>Subir</button>
+          &nbsp;
+          <a class="btn btn-primary btn-lg" href="{% url 'profile' request.user.username %}">Cancelar</a>
+      </form>
+    </div>
+  </div>
+</div>
+   
+
+{% endblock %}
+

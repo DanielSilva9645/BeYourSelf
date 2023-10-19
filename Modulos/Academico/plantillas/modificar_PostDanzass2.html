@@ -1,0 +1,57 @@
+{% extends "indexP.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+Editar Foro Danzas
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'IndexView' %}"><i class="icon_house"></i> Home</a></li>
+      <li><a href="{% url 'profile' request.user.username %}"><i class="icon_profile"></i> Mi Perfil</a></li>
+      <li><a href="{% url 'PostsPedidos' request.user.username %}"><i class="icon_profile"></i> Publicaciones y Pedidos</a></li>
+      <li><a href="#"><i class="icon_pencil-edit"></i> Editar Foro Danzas</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <p><em><h2><i class="icon_music"></i> Editar Foro Danza</h2></em></p>
+    </div>
+  </div>
+</div>
+<br>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="card-deck">
+  <div class="card" align="center">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+          <span class="profile-ava2"><img src="{{ user.profile.image.url }}" class="img-thumbnail"></span>
+          <h2 class="username"><a href="{% url 'profile' user.username %}">@{{ user.username }}</a></h2>
+      </div>
+    </div> 
+    <div class="card-body  mb-3">
+      <h3 class="card-text">
+        <p align="left">
+          {{ form.content }}
+          <br><br>
+          <button class="btn btn-info btn-lg" type="submit" class="post" id="" ><i class="icon_cloud"></i> Subir</button>
+          <a class="btn btn-info btn-lg" href="{% url 'PostsPedidos' request.user.username %}">Cancelar</a>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+</div>
+</form> 
+
+{% endblock %}
+

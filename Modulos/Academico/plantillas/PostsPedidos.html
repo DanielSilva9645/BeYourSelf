@@ -1,0 +1,1112 @@
+{% extends "indexP.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Publicaciones y Pedidos de @{{ user.username }}
+{% endblock %}
+
+{% block js %}
+<script>
+  function eliminarDanza(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/AreaPersonal/PostDanzas/eliminar_PostDanzass2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+<script>
+  function eliminarDepo(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/AreaPersonal/PostDeportes/eliminar_PostDeportess2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+<script>
+  function eliminarFoto(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/AreaPersonal/PostFotografia/eliminar_PostFoto2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+<script>
+  function eliminarMusi(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/AreaPersonal/PostMusicas/eliminar_PostMusi2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+<script>
+  function eliminarPint(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/AreaPersonal/PostPintura/eliminar_PostPint2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+<script>
+  function eliminarTA(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/AreaPersonal/PostTA/eliminar_PostTA2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+<script>
+  function eliminarPedidoDanza(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/Perfil/VerPDanzas/eliminar_PedidoDanza2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+<script>
+  function eliminarPedidoDepo(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/Perfil/VerPDeportes/eliminar_PedidoDepo2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+<script>
+  function eliminarPedidoFoto(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/Perfil/VerPFoto/eliminar_PedidoFoto2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+<script>
+  function eliminarPedidoMusi(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/Perfil/VerPMusica/eliminar_PedidoMusi2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+<script>
+  function eliminarPedidoPint(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/Perfil/VerPPintura/eliminar_PedidoPint2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+<script>
+  function eliminarPedidoTA(codigo){
+    Swal.fire({
+      "title": "¿Estas seguro?",
+      "text": "Esta acción no se puede deshacer",
+      "icon": "question",
+      "showCancelButton": true,
+      "confirmButtonText": "Si, Eliminar",
+      "cancelButtonText": "No, Cancelar",
+      "reverseButtons": true,
+      "confirmButtonColor":"#dc3545"
+    })
+    .then(function(result){
+      if(result.isConfirmed){
+        window.location.href ="/Home/Perfil/VerPTA/eliminar_PedidoTA2/"+codigo+"/"
+      }
+    })
+  }
+</script>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'IndexView' %}"><i class="icon_house"></i> Home</a></li>
+      {% if request.user.is_authenticated %}
+        {% if user.username != request.user.username %}
+          <li><i class=""></i><a href="{% url 'profile' user.username %}"><i class="icon_profile"></i> {{ user.username }}</a></li>
+        {% else %}
+          <li><a href="{% url 'profile' request.user.username %}"><i class="icon_profile"></i>Mi Perfil</a></li>
+        {% endif %}
+      {% endif %}
+      <li><a href="#"><i class="icon_profile"></i> Publicaciones y Pedidos</a></li>
+      </ol>
+    </div>
+</div>
+
+
+<p><em><h2><i class="icon_profile"></i>  Publicaciones y Pedidos de @{{ user.username }}</h2></em></p>
+
+<figure class="text-center">
+  <h1>
+  <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">    
+    {% if user.username != request.user.username %}
+      <em>Publicaciones</em>
+    {% else %}
+      <em>Mis Publicaciones</em>
+    {% endif %}
+  </a>
+  <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+    {% if user.username != request.user.username %}
+      <em>Pedidos</em>
+    {% else %}
+      {% if perms.Academico.can_add_inv_danzas %}
+        <em>Pedidos de Usuarios</em>
+      {% else %}
+        <em>Mis Pedidos</em>
+      {% endif %}
+    {% endif %}
+  </button>
+</h1>
+
+<div class="collapse" id="collapseExample">
+  <h1>
+
+    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#PostsDanza" role="button" aria-expanded="false" aria-controls="PostsDanza"><i class="icon_music"></i> <em>Danzas: {{ user.postsDanzas.count }}</em></a>
+
+    <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#PostsDepo" aria-expanded="false" aria-controls="PostsDepo"><i class="social_dribbble_circle"></i> <em>Deportes: {{ user.postsDepo.count }}</em></button>
+
+    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#PostsFoto" role="button" aria-expanded="false" aria-controls="PostsFoto"><i class="social_instagram"></i> <em>Fotografia: {{ user.postsFoto.count }}</em></a>
+
+    <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#PostsMusi" aria-expanded="false" aria-controls="PostsMusi"><i class="icon_headphones"></i> <em>Musicas: {{ user.postsMusi.count }}</em></button>
+
+    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#PostsPint" role="button" aria-expanded="false" aria-controls="PostsPint"><i class="icon_pencil"></i> <em>Pintura: {{ user.postsPint.count }}</em></a>
+
+    <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#PostsTA" aria-expanded="false" aria-controls="PostsTA"><i class="icon_chat"></i> <em>Expresión Corporal: {{ user.postsTA.count }}</em></button>
+
+  </h1>
+</div>
+<div class="collapse" id="collapseExample2">
+  <h1>
+    <a class="btn btn-primary btn-lg-2" data-toggle="collapse" href="#PedirDanza" role="button" aria-expanded="false" aria-controls="PedirDanza"><i class="icon_music"></i> <em>Pedidos de Danzas: {{ user.HDanzas.count }}</em></a>
+
+    <button class="btn btn-primary btn-lg-2" type="button" data-toggle="collapse" data-target="#PedirDepo" aria-expanded="false" aria-controls="PedirDepo"><i class="social_dribbble_circle"></i> <em>Pedidos de Deportes: {{ user.HDepo.count }}</em></button>
+
+    <a class="btn btn-primary btn-lg-2" data-toggle="collapse" href="#PedirFoto" role="button" aria-expanded="false" aria-controls="PedirFoto"><i class="social_instagram"></i> <em>Pedidos de Fotografia: {{ user.HFoto.count }}</em></a>
+
+    <button class="btn btn-primary btn-lg-2" type="button" data-toggle="collapse" data-target="#PedirMusi" aria-expanded="false" aria-controls="PedirMusi"><i class="icon_headphones"></i> <em>Pedidos de Musica: {{ user.HMusi.count }}</em></button>
+
+    <a class="btn btn-primary btn-lg-2" data-toggle="collapse" href="#PedirPint" role="button" aria-expanded="false" aria-controls="PedirPint"><i class="icon_pencil"></i> <em>Pedidos de Pintura: {{ user.HPint.count }}</em></a>
+
+    <button class="btn btn-primary btn-lg-2" type="button" data-toggle="collapse" data-target="#PedirTA" aria-expanded="false" aria-controls="PedirTA"><i class="icon_chat"></i> <em>Pedidos de Expresión Corporal: {{ user.HTA.count }}</em></button>
+
+  </h1>
+</div>
+
+</figure>
+
+<div class="collapse" id="PostsDanza">
+
+
+  {% for post in postsDanzas %}
+
+<div class="col-lg-7">
+  <div class="card" align="center">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+        
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+        {% if post.user.username != request.user.username %}
+          
+        {% else %}
+                   
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="{% url 'modificar_PostDanzass2' post.codigo %}" >Editar</a>
+            <a class="dropdown-item" href="#" onclick="eliminarDanza({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+            
+        {% endif %}
+
+      </div>
+    </div> 
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <div class="post">{{ post.content }}</div>
+          <hr>
+          <h5 align="left"><time data-time="#"><i class="icon_clock_alt"></i> {{ post.timestamp }}</time></h5>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+        
+{% endfor %} 
+</div>
+
+<div class="collapse" id="PostsDepo"> 
+  {% for post in postsDepo %}
+
+<div class="col-lg-7">
+  <div class="card" align="center">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+
+        {% if post.user.username != request.user.username %}
+          
+        {% else %}
+                   
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="{% url 'modificar_PostDeportess2' post.codigo %}" >Editar</a>
+            <a class="dropdown-item" href="#" onclick="eliminarDepo({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+            
+        {% endif %}
+        
+      </div>
+    </div> 
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <div class="post">{{ post.content }}</div>
+          <hr>
+          <h5 align="left"><time data-time="#"><i class="icon_clock_alt"></i> {{ post.timestamp }}</time></h5>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+        
+{% endfor %}
+</div>
+
+<div class="collapse" id="PostsFoto"> 
+  {% for post in postsFoto %}
+
+<div class="col-lg-7">
+  <div class="card" align="center">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+        {% if post.user.username != request.user.username %}
+          
+        {% else %}
+                   
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="{% url 'modificar_PostFoto2' post.codigo %}" >Editar</a>
+            <a class="dropdown-item" href="#" onclick="eliminarFoto({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+            
+        {% endif %}
+
+      </div>
+    </div> 
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <div class="post">{{ post.content }}</div>
+          <hr>
+          <h5 align="left"><time data-time="#"><i class="icon_clock_alt"></i> {{ post.timestamp }}</time></h5>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+        
+{% endfor %}
+</div>
+
+<div class="collapse" id="PostsMusi"> 
+  {% for post in postsMusi %}
+
+<div class="col-lg-7">
+  <div class="card" align="">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+
+        {% if post.user.username != request.user.username %}
+          
+        {% else %}
+                   
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="{% url 'modificar_PostMusi2' post.codigo %}" >Editar</a>
+            <a class="dropdown-item" href="#" onclick="eliminarMusi({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+            
+        {% endif %}
+        
+      </div>
+    </div> 
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <div class="post">{{ post.content }}</div>
+          <hr>
+          <h5 align="left"><time data-time="#"><i class="icon_clock_alt"></i> {{ post.timestamp }}</time></h5>
+          
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+{% endfor %}
+</div>
+
+<div class="collapse" id="PostsPint">
+  {% for post in postsPint %}
+
+<div class="col-lg-7">
+  <div class="card" align="center">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+        {% if post.user.username != request.user.username %}
+          
+        {% else %}
+                   
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="{% url 'modificar_PostPint2' post.codigo %}" >Editar</a>
+            <a class="dropdown-item" href="#" onclick="eliminarPint({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+            
+        {% endif %}
+        
+      </div>
+    </div> 
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <div class="post">{{ post.content }}</div>
+          <hr>
+          <h5 align="left"><time data-time="#"><i class="icon_clock_alt"></i> {{ post.timestamp }}</time></h5>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+        
+{% endfor %}
+</div>
+
+<div class="collapse" id="PostsTA"> 
+  {% for post in postsTA %}
+
+<div class="col-lg-7">
+  <div class="card" align="center">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+        {% if post.user.username != request.user.username %}
+          
+        {% else %}
+                   
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="{% url 'modificar_PostTA2' post.codigo %}" >Editar</a>
+            <a class="dropdown-item" href="#" onclick="eliminarTA({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+            
+        {% endif %}
+        
+      </div>
+    </div> 
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <div class="post">{{ post.content }}</div>
+          <hr>
+          <h5 align="left"><time data-time="#"><i class="icon_clock_alt"></i> {{ post.timestamp }}</time></h5>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+        
+{% endfor %}
+</div>
+
+<div class="collapse" id="PedirDanza">
+
+{% if user.username != request.user.username %}
+{% for post in HDanzas %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>        
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>Ha pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+{% endfor %}
+{% else %}
+  {% if perms.Academico.can_add_inv_danzas %}
+    <figure class="text-center">
+      <a href="{% url 'VerPDanzas' %}" class="btn btn-primary btn-sm">Ver Pedidos de Danzas</a>
+    </figure>    
+  {% else %}
+    {% for post in HDanzas %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="#" onclick="eliminarPedidoDanza({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>He pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+    {% endfor %}
+  {% endif %}
+{% endif %}
+
+</div>
+
+<div class="collapse" id="PedirDepo">
+
+{% if user.username != request.user.username %}
+{% for post in HDepo %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>Ha pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+{% endfor %}
+{% else %}
+  {% if perms.Academico.can_add_inv_danzas %}
+    <figure class="text-center">
+      <a href="{% url 'VerPDeportes' %}" class="btn btn-primary btn-sm">Ver Pedidos de Deportes</a>
+    </figure>    
+  {% else %}
+    {% for post in HDepo %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="#" onclick="eliminarPedidoDepo({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>He pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+    {% endfor %}
+  {% endif %}
+{% endif %}
+
+</div>
+
+<div class="collapse" id="PedirFoto">
+
+{% if user.username != request.user.username %}
+{% for post in HFoto %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>Ha pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+{% endfor %}
+{% else %}
+  {% if perms.Academico.can_add_inv_danzas %}
+    <figure class="text-center">
+      <a href="{% url 'VerPFoto' %}" class="btn btn-primary btn-sm">Ver Pedidos de Fotografia</a>
+    </figure>    
+  {% else %}
+    {% for post in HFoto %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="#" onclick="eliminarPedidoFoto({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>He pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+    {% endfor %}
+  {% endif %}
+{% endif %}
+  
+</div>
+
+<div class="collapse" id="PedirMusi"> 
+
+{% if user.username != request.user.username %}
+{% for post in HMusi %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>Ha pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+{% endfor %}
+{% else %}
+  {% if perms.Academico.can_add_inv_danzas %}
+    <figure class="text-center">
+      <a href="{% url 'VerPMusica' %}" class="btn btn-primary btn-sm">Ver Pedidos de Musica</a>
+    </figure>    
+  {% else %}
+    {% for post in HMusi %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="#" onclick="eliminarPedidoMusi({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>He pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+    {% endfor %}
+  {% endif %}
+{% endif %}
+  
+</div>
+
+<div class="collapse" id="PedirPint">
+
+{% if user.username != request.user.username %}
+{% for post in HPint %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>Ha pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+{% endfor %}
+{% else %}
+  {% if perms.Academico.can_add_inv_danzas %}
+    <figure class="text-center">
+      <a href="{% url 'VerPPintura' %}" class="btn btn-primary btn-sm">Ver Pedidos de Pintura</a>
+    </figure>    
+  {% else %}
+    {% for post in HPint %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="#" onclick="eliminarPedidoPint({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>He pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+    {% endfor %}
+  {% endif %}
+{% endif %}
+
+</div>
+
+<div class="collapse" id="PedirTA"> 
+
+{% if user.username != request.user.username %}
+{% for post in HTA %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>Ha pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+{% endfor %}
+{% else %}
+  {% if perms.Academico.can_add_inv_danzas %}
+    <figure class="text-center">
+      <a href="{% url 'VerPTA' %}" class="btn btn-primary btn-sm">Ver Pedidos Expresión Corporal</a>
+    </figure>    
+  {% else %}
+    {% for post in HTA %}
+
+<div class="col-lg-7">
+  <div class="card" align="left">
+    <div class="card-header text-white bg-light mb-3">
+      <div class="container-article">
+
+        <span class="profile-ava2"><img src="{{ post.user.profile.image.url }}" class="img-thumbnail"></span>
+        <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-ellipsis-v"></i></button>
+          <div class="dropdown-menu" align="right" aria-labelledby="dropdownMenuButton" >
+            <a class="dropdown-item" href="#" onclick="eliminarPedidoTA({{post.codigo}})">Eliminar</a>
+          </div>
+        </div>
+
+      </div>
+    </div> 
+
+    <div class="card-body mb-3">
+      <h3 class="card-text" align="left">
+        <p align="left">
+          <h3>He pedido {{ post.pedir}}, {{ post.material }}/s</h3>
+          <i class="clock"></i>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha Solicitado: {{post.Fecha_Solicitado }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha a Pedir: {{post.Fecha_a_Pedir }}</div>
+          <div class="post"><i class="icon_clock_alt"></i> Fecha para Entregar: {{post.Fecha_Limite }}</div>
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <br><br>
+</div>
+        
+    {% endfor %}
+  {% endif %}
+{% endif %}
+  
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{% if form.errors %}
+  <script>
+      Swal.fire({
+        "title": "Error",
+        "text": "",
+        "icon": "error"
+      })   
+  </script>
+{% endif %}
+
+{% if messages %}
+  {% for m in messages %}
+    <script>
+      Swal.fire({
+        "title": "Felicidades",
+        "text": "{{m}}",
+        "icon": "success"
+      })
+    </script>
+  {% endfor %}
+{% endif %}
+   
+
+{% endblock %}
+

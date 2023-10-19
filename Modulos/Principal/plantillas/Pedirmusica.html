@@ -1,0 +1,80 @@
+{% extends "indexP.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Pedir
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'IndexView' %}"><i class="icon_house"></i> Home</a></li>
+      <li><a href="{% url 'Inventarios' %}"><i class="icon_archive"></i> Inventarios</a></li>
+      <li><a href="{% url 'InventarioMusica' %}"><i class="icon_headphones"></i> Musica</a></li>
+      <li><a href="{% url 'Pedir_invMusica' %}"><i class="icon_folder-add"></i> Pedir</a></li></li>
+    </ol>
+  </div>
+</div>  
+      
+      <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="container">
+          <div class="row">
+          <p><em><h1><i class="icon_folder-add"></i> Pedir</h1></em></p>
+          <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"><p><em><h3>Material</h3></em></p></label>
+          {{ form.material|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+          </div>
+          <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"><p><em><h3>Cantidad</h3></em></p></label>
+          {{ form.pedir|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+          </div>
+          <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"><p><em><h3>Fecha a Pedir</h3></em></p></label>
+          {{ form.Fecha_a_Pedir|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+          </div>
+          <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"><p><em><h3>Fecha a Entregar</h3></em></p></label>
+          {{ form.Fecha_Limite|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+          <br>
+          </div>
+          <figure class="text-left">
+          <button type="submit" class="btn btn-primary"><i class="icon_cloud"></i> Pedir</button>
+          &nbsp;&nbsp;
+          <a class="btn btn-primary" href="{% url 'InventarioMusica' %}">Cancelar</a>
+        </figure> 
+      </div>
+    </div>
+    
+      </form>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{% if form.errors %}
+  <script>
+      Swal.fire({
+        "title": "Error",
+        "text": "",
+        "icon": "error"
+      })   
+  </script>
+{% endif %}
+
+{% if messages %}
+  {% for m in messages %}
+    <script>
+      Swal.fire({
+        "title": "Lo sentimos :(",
+        "text": "{{m}}",
+        "icon": "error"
+      })
+    </script>
+  {% endfor %}
+{% endif %}
+
+{% endblock %}
+

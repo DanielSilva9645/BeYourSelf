@@ -1,0 +1,88 @@
+{% extends "indexP.html" %}
+{% load static %}
+
+{% block title %}
+Inventarios
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'IndexView' %}"><i class="icon_house"></i> Home</a></li>
+      <li><a href="{% url 'Inventarios' %}"><i class="icon_archive"></i> Inventarios</a></li>
+    </ol>
+  </div>
+</div>
+
+<em><h1><i class="icon_archive"></i> Inventarios</h1></em>
+
+<br>
+<div class="card-deck">
+
+  <div class="card">
+    <img src='{% static "img/Mus.png" %}' id="logo" alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title"><i class="icon_headphones"></i> Musica</h3>
+      <p class="card-text">Interpreta y dejate llevar</p>
+      <a href="{% url 'InventarioMusica' %}" class="btn btn-primary">Ver Inventario</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src='{% static "img/Pin.png" %}' id="logo" alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title"><p><i class="icon_pencil"></i> Pintura</p></h3>
+      <p class="card-text">Descubre Mas.</p>
+      <a href="{% url 'InventarioPintura' %}" class="btn btn-primary">Ver Inventario</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src='{% static "img/tod.png" %}' id="logo" alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title"><i class="social_instagram"></i> Fotografia</h3>
+      <p class="card-text">Donde puedes congelar el tiempo y guardar el momento.</p>
+      <a href="{% url 'InventarioFotografia' %}" class="btn btn-primary">Ver Inventario</a>
+    </div>
+  </div>
+
+</div>
+</br>
+
+<div class="card-deck">
+
+  <div class="card">
+    <img src='{% static "img/Ex.png" %}' id="logo" alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title"><i class="icon_chat"></i>Expresion Corporal</h3>
+      <p class="card-text">Crea y Diseña</p>
+      <a href="{% url 'InventarioTA' %}" class="btn btn-primary">Ver Inventario</a>
+    </div>
+    <br>
+  </div>
+
+  <div class="card">
+    <img src='{% static "img/Dep.png" %}' id="logo" alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title"><i class="social_dribbble_circle"></i> Deportes</h3>
+      <p class="card-text">Crea y Diseña</p>
+      <a href="{% url 'InventarioDeportes' %}" class="btn btn-primary">Ver Inventario</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src='{% static "img/Dan.png" %}' id="logo" alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title"><i class="icon_music"></i> Danzas</h3>
+      <p class="card-text">Donde puedes sentirte libre de poder expresar</p>
+     <a href="{% url 'InventarioDanzas' %}" class="btn btn-primary">Ver Inventario</a>
+    </div>
+  </div>
+
+</div>
+</br>
+
+{% endblock %}
+

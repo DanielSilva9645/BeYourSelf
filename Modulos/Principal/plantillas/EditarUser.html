@@ -1,0 +1,60 @@
+{% extends "indexP.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Cambio de Datos Personales
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'IndexView' %}"><i class="icon_house"></i> Home</a></li>
+      <li><a href="{% url 'profile' request.user.username %}"><i class="icon_profile"></i> Mi Perfil</a></li>
+      <li><a href="#"><i class="icon_pencil-edit"></i> Cambio de Datos Personales</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-10">
+			<form action="" method="post">
+				{% csrf_token %}
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <p><em><h2><i class="icon_pencil-edit"></i> Cambio de Datos Personales</h2></em></p>
+              </div>
+              <div class="col-sm-4">
+                <br>
+                <a class="btn btn-primary btn-lg-2" href="{% url 'AñadirDatos' request.user.profile.codigo %}"><i class="icon_pencil-edit"></i> Añadir Datos</a>
+              </div>
+            </div>
+          </div>                    
+          <br>
+   				<label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"><em><h3>Nombres:</h3></em>
+  				</label>
+ 				   <br>
+    			{{form.first_name|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+    			<br><br>
+  				<label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"><em><h3>Apellidos:</h3></em></label>
+  				<br>
+    			{{form.last_name|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+    			<br><br>
+  				<label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"><em><h3>Dirección de correo electrónico:</h3></em></label>
+  				<br>
+  				{{ form.email|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+  				<br><br>
+          <button type="submit" class="btn btn-info btn-lg"><i class="bx bx-log-in "></i>Subir</button>
+          &nbsp;
+          <a class="btn btn-info btn-lg" href="{% url 'profile' request.user.username %}">Cancelar</a>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+

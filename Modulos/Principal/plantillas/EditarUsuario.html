@@ -1,0 +1,75 @@
+{% extends "indexP.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Cambio de Usuario
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'IndexView' %}"><i class="icon_house"></i> Home</a></li>
+      <li><a href="{% url 'profile' request.user.username %}"><i class="icon_profile"></i> Mi Perfil</a></li>
+      <li><a href="#"><i class="icon_pencil-edit"></i> Cambio de Usuario</a></li>
+    </ol>
+  </div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-10">
+      <p><em><h2><i class="icon_pencil-edit"></i> Cambio de Usuario</h2></em></p>
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+    </svg>
+
+<div class="alert alert-warning d-flex align-items-center" role="alert">
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24"><use xlink:href="#exclamation-triangle-fill"/></svg>
+  <div>
+    <a href="#" class="alert-link"><p><h4><em>{{ user.username }}... Si deseas cambiar tu usuario actual, automaticamente el sistema te hara cerrar sesión, para que vuelvas a iniciar sesión con tu nuevo usuario.</em></h4></p></a>
+  </div>
+</div>
+			<form action="" method="post">
+				{% csrf_token %}
+ 				   <br>
+    			{{form.username|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+    			<br><br>
+          <button type="submit" class="btn btn-primary btn-lg"><i class="bx bx-log-in "></i>Subir</button>
+          &nbsp;
+          <a class="btn btn-primary btn-lg" href="{% url 'profile' request.user.username %}">Cancelar</a>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{% if form.errors %}
+  <script>
+      Swal.fire({
+        "title": "Error",
+        "text": "",
+        "icon": "error"
+      })   
+  </script>
+{% endif %}
+
+{% if messages %}
+  {% for m in messages %}
+    <script>
+      Swal.fire({
+        "title": "Ojo",
+        "text": "{{m}}",
+        "icon": "warning"
+      })
+    </script>
+  {% endfor %}
+{% endif %}
+
+{% endblock %}
+

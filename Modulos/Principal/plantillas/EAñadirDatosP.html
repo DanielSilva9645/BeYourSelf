@@ -1,0 +1,69 @@
+{% extends "indexP.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Añadir Datos
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'IndexView' %}"><i class="icon_house"></i> Home</a></li>
+      <li><a href="{% url 'profile' request.user.username %}"><i class="icon_profile"></i> Mi Perfil</a></li>
+      <li><a href="#"><i class="icon_pencil-edit"></i> Añadir Datos</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-10">
+			<form action="" method="post">
+				{% csrf_token %}
+          <p><em><h2><i class="icon_pencil-edit"></i> Datos Solicitados</h2></em></p>
+          <br>
+          <label for="colFormLabelLg" class="col-sm-6 col-form-label col-form-label-lg"><em><h3>Tipo de Documento de Identidad</h3></em>
+          </label>
+           <br>
+          {{form.Tipo_de_Documento_de_Identidad|add_class:'form-control'}}
+          <br><br>
+          <label for="colFormLabelLg" class="col-sm-6 col-form-label col-form-label-lg"><em><h3>Numero de Documento de Identidad</h3></em>
+          </label>
+           <br>
+          {{form.Numero_de_Documento_de_Identidad|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+          <br><br>
+   				<label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"><em><h3>Numero de Celular:</h3></em>
+  				</label>
+ 				   <br>
+    			{{form.Celular|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+    			<br><br>
+  				<label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"><em><h3>Numero Telefonico:</h3></em></label>
+  				<br>
+    			{{form.Telefono|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+  				<br><br>
+          <button type="submit" class="btn btn-info btn-lg"><i class="bx bx-log-in "></i>Subir</button>
+          &nbsp;
+          <a class="btn btn-info btn-lg" href="{% url 'profile' request.user.username %}">Cancelar</a>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{% if form.errors %}
+  {% for error in field.errors %}
+    <script>
+      Swal.fire({
+        "title": "Error",
+        "text": "{{ error }}",
+        "icon": "error"
+      })   
+    </script>           
+  {% endfor %}  
+{% endif %}
+
+{% endblock %}
+

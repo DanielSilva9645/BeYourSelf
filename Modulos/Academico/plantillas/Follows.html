@@ -1,0 +1,77 @@
+{% extends "indexP.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Seguidores and Seguidos 
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'IndexView' %}"><i class="icon_house"></i> Home</a></li>
+      {% if request.user.is_authenticated %}
+        {% if user.username != request.user.username %}
+          <li><i class=""></i><a href="{% url 'profile' user.username %}"><i class="icon_profile"></i> {{ user.username }}</a></li>
+        {% else %}
+          <li><a href="{% url 'profile' request.user.username %}"><i class="icon_profile"></i>Mi Perfil</a></li>
+        {% endif %}
+      {% endif %}
+      <li><a href="#"><i class="icon_profile"></i> Seguidores and Seguidos</a></li>
+      </ol>
+    </div>
+</div>
+
+<p><em><h2><i class="icon_profile"></i> Seguidores and Seguidos de @{{ user.username }}</h2></em></p>
+<br>
+<div class="card-deck">
+
+  <div class="card">
+    <div class="card-header text-white bg-info mb-3">
+      <h1 class="card-title">
+        <p align="center">
+        Seguidores: {{ user.profile.followers.count }}
+        </p>
+      </h1>
+    </div>
+    <div class="card-body">
+       <h3 class="card-text">
+        <p align="justify">
+          {% for followerss in related_to %}
+            <a href="#"><h3>{{ followerss }}</h3></a>
+          {% endfor %}
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small>
+      </p>
+    </div>
+  </div>
+   
+  <div class="card border-info mb-3">
+    <div class="card-header text-white bg-primary mb-3">
+      <h1 class="card-title">
+        <p align="center">
+          Seguidos: {{ user.profile.following.count }}
+        </p>
+      </h1>
+    </div>
+    <div class="card-body">
+      <h3 class="card-text">
+        <p align="justify">
+          {% for followings in relationships %}
+            <a href="#"><h3>{{ followings }}</h3></a>
+          {% endfor %}
+        </p>
+      </h3>
+      <p class="card-text"><small class="text-muted"></small>
+      </p>
+    </div>
+  </div>
+
+</div>
+   
+
+{% endblock %}
+

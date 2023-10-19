@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<style>
+    .img-invoice {
+        width: 50px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .head {
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+</style>
+
+
+
+<body>
+
+<p class="head">
+    {% for d in logo %}
+        <img src="{{ d.image.path }}"/>
+    {% endfor %}
+</p>
+<br><br>
+<figure class="head"><h3>INVENTARIO DE DANZAS</h3></figure>
+<br>
+<table class="table table-sm">
+  <thead class="table-light">
+    <tr>
+
+        <th scope="col">CODIGO</th>
+        <th scope="col">MATERIALES</th>
+        <th scope="col">DISPONIBLE</th>
+        <th scope="col">ESTADO</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    {% for d in Danzas %}
+        <tr>
+            <td class="text-align">{{ d.codigo }}</td>
+            <td class="text-align">{{ d.materialess }}</td>
+            <td class="text-align">{{ d.disponible }}</td>
+            <td class="text-align">{{ d.Estado }}</td>     
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<table style="margin-top: 50px;">
+    <thead>
+    <tr>
+        <th>****FIN****</th>
+    </tr>
+    </thead>
+</table>
+
+
+
+</body>
+</html>

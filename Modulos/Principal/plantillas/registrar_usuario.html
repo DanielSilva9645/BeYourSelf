@@ -1,0 +1,214 @@
+{% extends "loginP.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Registro
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+
+	function mostrarContraseña1(){
+		var tipo = document.getElementById('id_password1');
+		var icon = document.getElementById('boton');
+
+		if (tipo.type == 'password') {
+			tipo.type = 'text';
+			tipo.class = 'icon_lock-open';
+		}else {
+			tipo.type = 'password';
+			tipo.class = 'icon_lock';
+		}
+	}
+	function mostrarContraseña2(){
+		var tipo = document.getElementById('id_password2');
+		var icon = document.getElementById('boton');
+
+		if (tipo.type == 'password') {
+			tipo.type = 'text';
+			tipo.class = 'icon_lock-open';
+		}else {
+			tipo.type = 'password';
+			tipo.class = 'icon_lock';
+		}
+	}
+
+</script>
+{% endblock %}
+
+{% block content %}
+
+<figure class="text-center">
+	<div class="container-sm">
+		<div class="row">
+			<div class="col-sm-4">
+				<img src='{% static "img/lineamorada.png" %}'/>
+				<br/>
+			</div>
+			<div class="col-sm-4">
+				<em><h3>Registro</h3></em>
+			</div>
+			<div class="col-sm-4">
+				<img src='{% static "img/lineaazul.png" %}' />
+				<br/>
+			</div>
+		</div>
+	</div>
+</figure>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+</svg>
+
+<figure class="text-left">
+	<div class="container">
+		<div class="row">
+			{% if form.errors %}
+              <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+              <div>
+                <a href="#" class="alert-link"><p><h4><em>Por favor, corrija los siguientes errores.</em></h4></p></a>
+              </div>
+              </div>
+            {% endif %}
+      		{% for field in form %}
+
+            {% for error in field.errors %}
+                <h5 class="alert alert-danger"><li>{{ error }}</li></h5>
+            {% endfor %}
+
+          	{% endfor %}
+			</div>
+		</div>
+</figure>
+
+<form action="" method="post">
+	{% csrf_token %}
+
+	<figure class="text-left">
+		<div class="container">
+			<div class="row">
+  				<label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"><em><h3>Nombre de usuario:</h3></em>
+  				</label>
+  			<div class="col-sm-8" >
+    		{{ form.username|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+    		<h5><li>Requerido. 150 carácteres como máximo. Únicamente letras, dígitos y @/./+/-/_</li></h5>
+  			</div>
+			</div>
+		</div>
+
+	</figure>
+
+	<figure class="text-left">
+
+		<div class="container">
+			<div class="row">
+  				<label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"><em><h3>Contraseña:</h3></em>
+  				</label>
+  			<div class="col-sm-8">
+  				<div class="input-group">
+  					{{form.password1|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+      				<div class="input-group-text" >
+      					<i class="icon_lock" onclick="mostrarContraseña1()"></i>
+      				</div>		
+    			</div>    		
+    		<h5><li>Su contraseña no puede asemejarse tanto a su otra información personal.</li></h5>
+    		<h5><li>Su contraseña debe contener por lo menos 8 caracteres.</li></h5>
+    		<h5><li>Su contraseña no puede ser una clave utilizada comúnmente.</li></h5>
+    		<h5><li>Su contraseña no puede ser completamente numérica.</li></h5>
+  			</div>
+			</div>
+		</div>
+
+	</figure>
+
+	<figure class="text-left">
+
+		<div class="container">
+			<div class="row">
+  				<label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"><em><h3>Confirmar Contraseña:</h3></em>
+  				</label>
+  			<div class="col-sm-8">
+  				<div class="input-group">
+  					{{form.password2|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+      				<div class="input-group-text" >
+      					<i class="icon_lock" onclick="mostrarContraseña2()"></i>
+      				</div>		
+    			</div>    		
+    		<h5><li>Para verificar, ingrese la misma contraseña anterior.</li></h5>
+  			</div>
+			</div>
+		</div>
+
+	</figure>
+	<br>
+	<figure class="text-left">
+
+		<div class="container">
+			<div class="row">
+  				<label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"><em><h3>Nombres:</h3></em>
+  				</label>
+  			<div class="col-sm-8">
+    		{{ form.first_name|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+  			</div>
+			</div>
+		</div>
+
+	</figure>
+
+	<figure class="text-left">
+
+		<div class="container">
+			<div class="row">
+  				<label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"><em><h3>Apellidos:</h3></em>
+  				</label>
+  			<div class="col-sm-8">
+    		{{ form.last_name|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+  			</div>
+			</div>
+		</div>
+
+	</figure>
+
+	<figure class="text-left">
+
+		<div class="container">
+			<div class="row">
+  				<label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg"><em><h3>Dirección de correo electrónico:</h3></em>
+  				</label>
+  			<div class="col-sm-8">
+  			<br>
+    		{{ form.email|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:'}}
+  			</div>
+			</div>
+		</div>
+			
+
+	</figure>
+
+	<figure class="text-center">
+
+		<div class="container">
+			<div class="row">
+				<label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg"><em><h3></h3></em></label>
+  			<div class="col-sm-5">
+    		<button type="submit" class="btn btn-primary btn-lg"><i class="bx bx-log-in "></i> Registrarse</button>
+    		&nbsp;
+        	<a class="btn btn-primary btn-lg" href="{% url 'login' %}">Cancelar</a>
+  			</div>
+			</div>
+		</div>
+
+	</figure>
+
+	</form>
+
+<div class="text-left">
+	<a class="btn btn-primary" href="{% url 'Presentacion' %}"><i class="arrow_back"></i></a>
+</div>
+
+{% endblock %}
+
